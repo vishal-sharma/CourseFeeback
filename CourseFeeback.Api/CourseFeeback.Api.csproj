@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CourseFeeback.Data\CourseFeeback.Data.csproj" />
     <ProjectReference Include="..\CourseFeeback.Domain\CourseFeeback.Domain.csproj" />
+    <ProjectReference Include="..\CourseFeeback.ExternalServices\CourseFeeback.ExternalServices.csproj" />
   </ItemGroup>
 
 </Project>

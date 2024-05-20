@@ -10,6 +10,8 @@
 
         public required string Content { get; init; }
 
+        public string Sentiment { get; set; } = "Undetermined";
+
         public required DateOnly CreatedAt { get; init; }
     }
 }

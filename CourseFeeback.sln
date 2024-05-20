@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseFeeback.Api", "CourseFeeback.Api\CourseFeeback.Api.csproj", "{3137DA21-107E-4589-A823-34424BA05909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseFeeback.Api", "CourseFeeback.Api\CourseFeeback.Api.csproj", "{3137DA21-107E-4589-A823-34424BA05909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseFeeback.Domain", "CourseFeeback.Domain\CourseFeeback.Domain.csproj", "{586D5F83-D933-451D-9DC4-55427587E214}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseFeeback.Domain", "CourseFeeback.Domain\CourseFeeback.Domain.csproj", "{586D5F83-D933-451D-9DC4-55427587E214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseFeeback.Data", "CourseFeeback.Data\CourseFeeback.Data.csproj", "{3BB11801-8359-4B3B-8763-F3DE02F03AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseFeeback.Data", "CourseFeeback.Data\CourseFeeback.Data.csproj", "{3BB11801-8359-4B3B-8763-F3DE02F03AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseFeeback.Console", "CourseFeeback.Console\CourseFeeback.Console.csproj", "{F37C167C-9D1E-4658-97D5-8E365260C683}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseFeeback.Console", "CourseFeeback.Console\CourseFeeback.Console.csproj", "{F37C167C-9D1E-4658-97D5-8E365260C683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseFeeback.ExternalServices", "CourseFeeback.ExternalServices\CourseFeeback.ExternalServices.csproj", "{40A77602-6830-4A17-9516-68820231A1CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseFeeback.ExternalServices.Tests", "CourseFeeback.ExternalServices.Tests\CourseFeeback.ExternalServices.Tests.csproj", "{1AF298F0-0768-4E13-801F-C19DD33D5902}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{F37C167C-9D1E-4658-97D5-8E365260C683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F37C167C-9D1E-4658-97D5-8E365260C683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F37C167C-9D1E-4658-97D5-8E365260C683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A77602-6830-4A17-9516-68820231A1CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A77602-6830-4A17-9516-68820231A1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A77602-6830-4A17-9516-68820231A1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A77602-6830-4A17-9516-68820231A1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF298F0-0768-4E13-801F-C19DD33D5902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF298F0-0768-4E13-801F-C19DD33D5902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF298F0-0768-4E13-801F-C19DD33D5902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF298F0-0768-4E13-801F-C19DD33D5902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

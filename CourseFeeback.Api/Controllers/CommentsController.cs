@@ -2,6 +2,7 @@
 using CourseFeeback.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ProjectReview.ExternalServices;
 
 namespace CourseFeeback.Api.Controllers
 {
@@ -42,6 +43,8 @@ namespace CourseFeeback.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {
+            var sentiment = SentimentAnalysisService.GetSentiment(comment.Content);
+            comment.Sentiment = sentiment;
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
 
