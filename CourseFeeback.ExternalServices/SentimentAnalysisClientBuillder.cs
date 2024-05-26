@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 
 namespace ProjectReview.ExternalServices
 {
-    public static class SentimentAnalysisClientBuillder
+    public class SentimentAnalysisClientBuillder : ISentimentAnalysisClientBuillder
     {
-        private static IConfiguration config;
-        public static void Initialize(IConfiguration Configuration)
+        private readonly Uri endpoint;
+        private readonly AzureKeyCredential credential;
+
+        public SentimentAnalysisClientBuillder(IConfiguration config)
         {
-            config = Configuration;
+            string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
+            endpoint = new(languageEndpoint);
+            credential = new(config["languageKey"]);
         }
 
-        private static string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
-        private static readonly Uri endpoint = new(languageEndpoint);
-
-        public static TextAnalyticsClient BuildClient() => new(endpoint, new AzureKeyCredential(config["languageKey"]));
+        public TextAnalyticsClient BuildClient() => new(endpoint, credential);
     }
 }

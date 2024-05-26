@@ -14,8 +14,10 @@ builder.Services.AddSwaggerGen();
 builder.Configuration.AddAzureKeyVault(
         new Uri($"https://{Environment.GetEnvironmentVariable("AZURE_KEY_VAULT_NAME")}.vault.azure.net/"),
         new DefaultAzureCredential());
-SentimentAnalysisClientBuillder.Initialize(builder.Configuration);
 builder.Services.AddDbContext<CourseFeedbackContext>();
+
+builder.Services.AddSingleton<ISentimentAnalysisService, SentimentAnalysisService>();
+builder.Services.AddSingleton<ISentimentAnalysisClientBuillder, SentimentAnalysisClientBuillder>();
 
 var app = builder.Build();
 

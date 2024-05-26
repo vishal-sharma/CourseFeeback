@@ -1,10 +1,16 @@
 ﻿namespace ProjectReview.ExternalServices
 {
-    public class SentimentAnalysisService
+    public class SentimentAnalysisService : ISentimentAnalysisService
     {
-        public static string GetSentiment(string text)
+        private readonly ISentimentAnalysisClientBuillder sentimentAnalysisClientBuillder;
+
+        public SentimentAnalysisService(ISentimentAnalysisClientBuillder sentimentAnalysisClientBuillder)
         {
-            var client = SentimentAnalysisClientBuillder.BuildClient();
+            this.sentimentAnalysisClientBuillder = sentimentAnalysisClientBuillder;
+        }
+        public string GetSentiment(string text)
+        {
+            var client = sentimentAnalysisClientBuillder.BuildClient();
             var response = client.AnalyzeSentiment(text);
             return response.Value.Sentiment.ToString();
         }

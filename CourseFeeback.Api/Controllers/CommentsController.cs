@@ -11,12 +11,14 @@ namespace CourseFeeback.Api.Controllers
     public class CommentsController : ControllerBase
     {
         private readonly CourseFeedbackContext _context;
+        private readonly ISentimentAnalysisService _sentimentAnalysisService;
 
-        public CommentsController(CourseFeedbackContext context)
+        public CommentsController(CourseFeedbackContext context, ISentimentAnalysisService sentimentAnalysisService)
         {
             _context = context;
+            _sentimentAnalysisService = sentimentAnalysisService;
         }
-
+         
         // GET: api/Comments
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
@@ -43,7 +45,7 @@ namespace CourseFeeback.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {
-            var sentiment = SentimentAnalysisService.GetSentiment(comment.Content);
+            var sentiment = _sentimentAnalysisService.GetSentiment(comment.Content);
             comment.Sentiment = sentiment;
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
