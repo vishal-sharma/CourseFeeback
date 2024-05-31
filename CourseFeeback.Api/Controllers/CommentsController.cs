@@ -12,11 +12,13 @@ namespace CourseFeeback.Api.Controllers
     {
         private readonly CourseFeedbackContext _context;
         private readonly ISentimentAnalysisService _sentimentAnalysisService;
+        private readonly ILogger<CommentsController> _logger;
 
-        public CommentsController(CourseFeedbackContext context, ISentimentAnalysisService sentimentAnalysisService)
+        public CommentsController(CourseFeedbackContext context, ISentimentAnalysisService sentimentAnalysisService, ILogger<CommentsController> logger)
         {
             _context = context;
             _sentimentAnalysisService = sentimentAnalysisService;
+            _logger = logger;
         }
          
         // GET: api/Comments
@@ -50,6 +52,7 @@ namespace CourseFeeback.Api.Controllers
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation($"Comment for course {comment.CourseId} was created with sentiment {sentiment}");
             return CreatedAtAction("GetComment", new { id = comment.CommentId }, comment);
         }
 
